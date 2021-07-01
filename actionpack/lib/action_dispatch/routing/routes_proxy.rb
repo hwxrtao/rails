@@ -16,7 +16,7 @@ module ActionDispatch
         @script_namer = script_namer
       end
 
-      def url_options
+      def url_options(inner_options: nil)
         scope.send(:_with_routes, routes) do
           scope.url_options
         end

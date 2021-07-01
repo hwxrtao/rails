@@ -258,7 +258,7 @@ module ActionDispatch
           end
 
           def call(t, method_name, args, inner_options, url_strategy)
-            controller_options = t.url_options
+            controller_options = t.url_options(inner_options: inner_options)
             options = controller_options.merge @options
             hash = handle_positional_args(controller_options,
                                           inner_options || {},
@@ -536,7 +536,7 @@ module ActionDispatch
             end
 
             def _routes; @_proxy._routes; end
-            def url_options; {}; end
+            def url_options(inner_options: nil); {}; end
           end
 
           url_helpers = routes.named_routes.url_helpers_module

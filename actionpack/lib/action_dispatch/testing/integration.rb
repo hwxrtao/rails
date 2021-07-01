@@ -130,7 +130,7 @@ module ActionDispatch
         reset!
       end
 
-      def url_options
+      def url_options(inner_options: nil)
         @url_options ||= default_url_options.dup.tap do |url_options|
           url_options.reverse_merge!(controller.url_options) if controller.respond_to?(:url_options)
 
@@ -633,7 +633,7 @@ module ActionDispatch
 
     module UrlOptions
       extend ActiveSupport::Concern
-      def url_options
+      def url_options(inner_options: nil)
         integration_session.url_options
       end
     end

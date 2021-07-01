@@ -13,7 +13,7 @@ class FormHelperTest < ActionView::TestCase
       post "/rails/active_storage/direct_uploads" => "active_storage/direct_uploads#create", as: :rails_direct_uploads
     end
 
-    def url_options
+    def url_options(inner_options: nil)
       { host: "testtwo.host" }
     end
   end

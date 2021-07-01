@@ -111,8 +111,8 @@ module ActionDispatch
       # Hook overridden in controller to add request information
       # with +default_url_options+. Application logic should not
       # go into url_options.
-      def url_options
-        default_url_options
+      def url_options(inner_options: nil)
+        default_url_options(options: inner_options)
       end
 
       # Generate a URL based on the options provided, default_url_options and the

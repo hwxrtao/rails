@@ -27,7 +27,7 @@ module ActionController
 
     include AbstractController::UrlFor
 
-    def url_options
+    def url_options(inner_options: nil)
       @_url_options ||= {
         host: request.host,
         port: request.optional_port,

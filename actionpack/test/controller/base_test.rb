@@ -50,7 +50,7 @@ class UrlOptionsController < ActionController::Base
     render inline: "<%= #{params[:route]} %>"
   end
 
-  def url_options
+  def url_options(inner_options: nil)
     super.merge(host: "www.override.com")
   end
 end
