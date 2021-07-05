@@ -96,8 +96,6 @@ module ActionDispatch
           else
             mattr_writer :default_url_options
           end
-
-          self.default_url_options = {}
         end
 
         include(*_url_for_modules) if respond_to?(:_url_for_modules)
@@ -106,6 +104,10 @@ module ActionDispatch
       def initialize(...)
         @_routes = nil
         super
+      end
+
+      def default_url_options(options: nil)
+        {}
       end
 
       # Hook overridden in controller to add request information
